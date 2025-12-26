@@ -1,0 +1,39 @@
+{
+  "name": "doubao-image-video-mcp",
+  "version": "1.0.0",
+  "description": "豆包 MCP 服务器 - 支持图片生成和视频生成",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "doubao-image-video-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [
+    "mcp",
+    "doubao",
+    "豆包",
+    "image-generation",
+    "video-generation",
+    "seedream",
+    "seedance"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.3",
+    "typescript": "^5.9.3"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}

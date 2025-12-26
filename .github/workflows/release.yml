@@ -1,0 +1,39 @@
+name: Publish Package
+
+on:
+  release:        # 发 GitHub Release 时自动触发
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:          # ← 1. 放到 job 里
+      contents: read
+      id-token: write     # ← 2. OIDC 必须
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+
+      - run: pnpm install --frozen-lockfile
+      # - run: pnpm test
+      - run: npm publish --provenance --access public
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: publish
+    if: success()
+    steps:
+      - name: Echo success message
+        run: |
+          echo "✅ Successfully published claude-account-switcher to NPM!"
+          echo "📦 Package is now available at: https://www.npmjs.com/package/claude-account-switcher"
