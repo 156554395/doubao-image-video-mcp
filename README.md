@@ -5,39 +5,6 @@
 [![npm version](https://badge.fury.io/js/doubao-image-video-mcp.svg)](https://www.npmjs.com/package/doubao-image-video-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 开源仓库
-
-本项目已在 GitHub 开源，欢迎 Star 和 Fork：
-
-**[https://github.com/156554395/doubao-image-video-mcp](https://github.com/156554395/doubao-image-video-mcp)**
-
-### 参与贡献
-
-欢迎提交 Issue 和 Pull Request！
-
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启 Pull Request
-
-### 贡献指南
-
-- 遵循现有代码风格
-- 添加必要的测试和文档
-- 提交前运行 `pnpm build` 确保构建成功
-
-### 发布流程
-
-项目使用 GitHub Actions 自动发布到 npm：
-
-1. 更新 `package.json` 中的版本号
-2. 创建并推送 Git 标签：
-   ```bash
-   git tag v1.0.0
-   git push origin v1.0.0
-   ```
-3. GitHub Actions 自动构建并发布到 npm
 
 
 ## 功能
@@ -51,6 +18,16 @@
 1. 访问 [火山引擎豆包大模型平台](https://console.volcengine.com/ark)
 2. 注册/登录账号
 3. 在控制台获取 API Key
+
+## 创建推理接入点
+
+1. 访问 [火山引擎控制台](https://console.volcengine.com/ark)
+2. 进入「开通管理」页面，参与「协作奖励计划」享免费资源包
+3. 授权图片生成接入点（Doubao-Seedream-4.5 模型）
+4. 授权视频生成接入点（Doubao-Seedance-1.0-lite-t2v 模型）
+5. 进入「安全管理」页面，点击内容安全，复制接入点 ID 到配置文件
+
+PS: 图像生成和视频生成配置不同的接入点
 
 ## 安装
 
@@ -76,7 +53,7 @@ pnpm build
   "mcpServers": {
     "doubao-giv": {
       "command": "npx",
-      "args": ["-y", "doubao-image-video-mcp"],
+      "args": ["-y", "doubao-image-video-mcp@latest"],
       "env": {
         "DOUBAO_API_KEY": "your_api_key_here",
         "DOUBAO_IMAGE_ENDPOINT_ID": "ep-20241227-xxxxxxxxxxxxx",
@@ -94,7 +71,7 @@ pnpm build
   "mcpServers": {
     "doubao-giv": {
       "command": "npx",
-      "args": ["-y", "doubao-image-video-mcp"],
+      "args": ["-y", "doubao-image-video-mcp@latest"],
       "env": {
         "DOUBAO_API_KEY": "your_api_key_here",
         "DOUBAO_IMAGE_ENDPOINT_ID": "ep-20241227-xxxxxxxxxxxxx",
@@ -139,31 +116,6 @@ pnpm build
 
 > **重要**：必须在火山引擎控制台创建推理接入点并配置接入点 ID，直接使用模型名称可能因权限问题导致调用失败。
 
-### 创建推理接入点
-
-1. 访问 [火山引擎控制台](https://console.volcengine.com/ark)
-2. 进入「推理接入点」页面
-3. 创建图片生成接入点（选择 Seedream 模型）
-4. 创建视频生成接入点（选择 Seedance 模型）
-5. 复制接入点 ID 到配置文件
-
-### 完整配置示例
-
-```json
-{
-  "mcpServers": {
-    "doubao-giv": {
-      "command": "npx",
-      "args": ["-y", "doubao-image-video-mcp"],
-      "env": {
-        "DOUBAO_API_KEY": "your_api_key_here",
-        "DOUBAO_IMAGE_ENDPOINT_ID": "ep-20241227-xxxxxxxxxxxxx",
-        "DOUBAO_VIDEO_ENDPOINT_ID": "ep-20241227-xxxxxxxxxxxxx"
-      }
-    }
-  }
-}
-```
 
 ## 支持的工具
 
@@ -243,6 +195,34 @@ A: 在火山引擎控制台创建推理接入点后获取，使用 `endpoint_id`
 ### Q: 支持哪些图片尺寸？
 
 A: 图片生成支持多种尺寸，推荐使用 `1920x2160`、`1920x2560`、`2160x3840` 等高分辨率尺寸（豆包 API 要求图片至少 3686400 像素）。
+
+### 参与贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+1. Fork 本仓库
+2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
+3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
+4. 推送到分支 (`git push origin feature/AmazingFeature`)
+5. 开启 Pull Request
+
+### 贡献指南
+
+- 遵循现有代码风格
+- 添加必要的测试和文档
+- 提交前运行 `pnpm build` 确保构建成功
+
+### 发布流程
+
+项目使用 GitHub Actions 自动发布到 npm：
+
+1. 更新 `package.json` 中的版本号
+2. 创建并推送 Git 标签：
+   ```bash
+   git tag v1.0.0
+   git push origin v1.0.0
+   ```
+3. GitHub Actions 自动构建并发布到 npm
 
 ## Star 历史
 
