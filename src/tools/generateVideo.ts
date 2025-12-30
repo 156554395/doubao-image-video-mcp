@@ -45,7 +45,7 @@ export async function generateVideo(
     prompt,
     model,
     endpoint_id,
-    video_duration = 5,
+    video_duration = 12,
     fps = 24,
     resolution = "720p",
     first_frame_image_url,

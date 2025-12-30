@@ -127,7 +127,7 @@ pnpm build
 
 - `prompt` (必需): 图片描述文本
 - `model` (可选): 模型选择，默认 `doubao-seedream-4-5`
-- `size` (可选): 图片尺寸，默认 `1024x1024`
+- `size` (可选): 图片尺寸，默认 `2560x1440`
 - `image_url` (可选): 参考图片 URL (图生图)
 - `ref_image_urls` (可选): 多张参考图片 URL 数组 (多图融合)
 - `req_key` (可选): 请求标识

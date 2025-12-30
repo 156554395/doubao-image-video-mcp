@@ -46,7 +46,7 @@ export async function generateImage(
     prompt,
     model,
     endpoint_id,
-    size = "1920x2160",
+    size = "2560x1440",
     image_url,
     ref_image_urls,
     req_key,

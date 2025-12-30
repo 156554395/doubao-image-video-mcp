@@ -67,8 +67,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
   * doubao-seedream-4-5: 最新 4.0 模型，支持 4K 分辨率
   * doubao-seedream-3-0-t2i: 3.0 文生图模型
   注意: 直接使用模型名称可能需要账户权限，推荐使用 endpoint_id
-- size: 图片尺寸 (可选，默认: 1024x1024)
-  支持的尺寸: 1024x1024, 1024x1792, 1024x768, 768x1024, 1792x1024, 512x512, 512x768, 768x512
+- size: 图片尺寸 (可选，默认: 2560x1440)
+  支持的尺寸: 2560x1440, 2048x2048, 2304x1728, 1728x2304, 1440x2560, 2496x1664, 1664x2496, 3024x1296
 - image_url: 参考图片 URL (可选，用于图生图)
 - ref_image_urls: 多张参考图片 URL 数组 (可选，用于多图融合)
 - req_key: 请求标识 (可选，用于追踪)
@@ -93,8 +93,9 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
             },
             size: {
               type: "string",
-              description: "图片尺寸，默认: 1920x2160 (注意: 豆包 API 要求图片至少 3686400 像素)",
+              description: "图片尺寸，默认: 2560x1440 (注意: 豆包 API 要求图片至少 3686400 像素)",
               enum: [
+                "2560x1440",
                 "1920x2160",
                 "1920x2560",
                 "2160x3840",
